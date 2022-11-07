@@ -1,0 +1,100 @@
+html {
+  font-size: 62.5%; /*16px x 62.5% = 10px*/
+}
+
+body {
+  color: #333333;
+  font-family: "noto sans JP", "Open Sans", "ヒラギノ角ゴ ProN W3",
+    Hiragino Kaku Gothic ProN, "メイリオ", Meiryo, sans-serif;
+  font-size: 1.6rem;
+}
+
+header {
+  height: 50px;
+  background-color: #fff;
+  border-bottom: 1px solid #ccc;
+  text-align: center;
+}
+
+main {
+  background-color: #fff;
+  border-bottom: 1px solid #ccc;
+  text-align: center;
+  padding: 50px 0 50px 0;
+}
+
+footer {
+  height: 10px;
+  background-color: #666;
+  color: #fff;
+  font-size: 1.2rem;
+  border-bottom: 1px solid #ccc;
+  text-align: center;
+  padding: 10px 0;
+}
+
+ul {
+  /* border-top: 1px solid #000000; */
+
+  display: table;
+  table-layout: fixed;
+  /* width: 1000px; */
+  /* margin: 10px 0; */
+
+  border-collapse: separate;
+  border-spacing: 10px 0;
+  margin: 10px auto;
+}
+
+li {
+  padding: 10px 0;
+  width: 300px;
+  list-style-type: none;
+  border: 1px solid #666;
+  background-color: #666;
+  color: #fff;
+
+  display: table-cell;
+  cursor: pointer;
+}
+
+li:hover {
+  background: #fff;
+  color: #666;
+  border: 0.5px solid #888;
+}
+
+textarea {
+  margin: 3%;
+  width: 600px;
+  height: 230px;
+  font-size: 1.6rem;
+  box-shadow: 3px 3px 3px 3px #555;
+}
+
+/* 追記するリストのCSS */
+.list {
+  width: 600px;
+  margin: auto;
+
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+
+.list p {
+  height: 100px;
+  width: 100px;
+  padding: 10px 5px;
+  font-size: 1.2rem;
+  color: #fff;
+  margin-right: 10px;
+  margin-bottom: 20px;
+
+  /* background-color: #ffb6c1; */
+
+  /* バックグラウンドに画像を表示 */
+  /* background: url("../img/01.png"); */
+  background-size: contain; /*画像が両機内に収まる*/
+  background-repeat: no-repeat; /*繰り返さない*/
+}
