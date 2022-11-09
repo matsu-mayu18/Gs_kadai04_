@@ -14,13 +14,25 @@ header {
   background-color: #fff;
   border-bottom: 1px solid #ccc;
   text-align: center;
+  background-color: #fff;
+  background: url(../img/safari.png);
+  filter: greyscale(100%);
+
+  margin: 0 0 50px 0;
+}
+
+header h1 {
+  padding: 10px 0;
+  color: #32cd32;
+  font-size: 3.6rem;
+  font-weight: bolder;
 }
 
 main {
   background-color: #fff;
   border-bottom: 1px solid #ccc;
   text-align: center;
-  padding: 50px 0 50px 0;
+  padding: 0 0 50px 0;
 }
 
 footer {
@@ -33,22 +45,39 @@ footer {
   padding: 10px 0;
 }
 
-ul {
-  /* border-top: 1px solid #000000; */
-
-  display: table;
-  table-layout: fixed;
-  /* width: 1000px; */
-  /* margin: 10px 0; */
-
-  border-collapse: separate;
-  border-spacing: 10px 0;
+/* インプット領域 */
+.input-wrapper {
+  width: 1000px;
   margin: 10px auto;
+  display: flex;
+  justify-content: center;
 }
 
-li {
+/* カレンダー */
+.calender {
+  width: 500px;
+  margin: auto;
+}
+
+/* インプット側 */
+.input_contents {
+  width: 500px;
+}
+
+.select_button {
+  /* width: 100px; */
+
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.input_contents li {
+  font-size: 1.2rem;
+  width: 150px;
+
   padding: 10px 0;
-  width: 300px;
+  /* width: 500px; */
   list-style-type: none;
   border: 1px solid #666;
   background-color: #666;
@@ -58,23 +87,57 @@ li {
   cursor: pointer;
 }
 
-li:hover {
+.input_contents li:hover {
   background: #fff;
   color: #666;
   border: 0.5px solid #888;
 }
 
+.textarea-wrapper {
+  width: 500px;
+  display: block;
+  text-align: center;
+}
+
 textarea {
-  margin: 3%;
-  width: 600px;
+  /* margin: 3%; */
+  width: 497px;
   height: 230px;
-  font-size: 1.6rem;
+  font-size: 2.4rem;
   box-shadow: 3px 3px 3px 3px #555;
+  color: #333333;
+}
+
+.button {
+  /* border-top: 1px solid #000000; */
+  width: 1000px;
+  margin: 10px auto;
+
+  display: flex;
+}
+
+.button li {
+  padding: 10px 0;
+  width: 490px;
+  margin: auto;
+  list-style-type: none;
+  border: 1px solid #666;
+  background-color: #666;
+  color: #fff;
+
+  display: table-cell;
+  cursor: pointer;
+}
+
+.button li:hover {
+  background: #fff;
+  color: #666;
+  border: 0.5px solid #888;
 }
 
 /* 追記するリストのCSS */
 .list {
-  width: 600px;
+  width: 1100px;
   margin: auto;
 
   display: flex;
@@ -83,8 +146,8 @@ textarea {
 }
 
 .list p {
-  height: 100px;
-  width: 100px;
+  height: 200px;
+  width: 200px;
   padding: 10px 5px;
   font-size: 1.2rem;
   color: #fff;
@@ -95,6 +158,17 @@ textarea {
 
   /* バックグラウンドに画像を表示 */
   /* background: url("../img/01.png"); */
-  background-size: contain; /*画像が両機内に収まる*/
+  background-size: cover; /*画像が領域内に収まる*/
   background-repeat: no-repeat; /*繰り返さない*/
+  /* object-fit: contain; */
+}
+
+/* datepicker uiの見た目 */
+.ui-datepicker {
+  font-size: 150%;
+}
+
+#date_val {
+  width: 450px;
+  border-style: 1px solid #888;
 }

@@ -4,17 +4,49 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/themes/base/jquery-ui.min.css"
+    />
 
     <link rel="stylesheet" href="./css/reset.css" />
     <link rel="stylesheet" href="./css/mycss.css" />
-    <title>Document</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="./js/jquery-ui-1.13.2.custom/jquery-ui.css"
+    />
+    <title>サファリなTodoりすと</title>
   </head>
   <body>
-    <header></header>
+    <header>
+      <h1>サファリなTodoりすと</h1>
+    </header>
     <main>
-      <textarea name="" id="text_area" cols="30" rows="10"></textarea>
-
-      <ul>
+      <div class="input-wrapper">
+        <!-- カレンダー -->
+        <div>
+          <input type="text" id="date_val" />
+          <div class="calender"></div>
+        </div>
+        <div class="input_contents">
+          <ul class="select_button">
+            <li id="giraff">Giraff</li>
+            <li id="lion">Lion</li>
+            <li id="monkey">Monkey</li>
+          </ul>
+          <div class="textarea-wrapper">
+            <textarea
+              name=""
+              id="text_area"
+              cols="30"
+              rows="10"
+              placeholder="Todoを記入して下さい"
+            ></textarea>
+          </div>
+        </div>
+      </div>
+      <ul class="button">
         <li id="save">Save</li>
         <li id="clear">Clear</li>
       </ul>
@@ -27,6 +59,7 @@
     <footer>@copyrights</footer>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
     <script src="./js/myjs.js"></script>
   </body>
 </html>
