@@ -23,37 +23,47 @@
       <h1>サファリなTodoりすと</h1>
     </header>
     <main>
-      <div class="input-wrapper">
-        <!-- カレンダー -->
-        <div>
-          <input type="text" id="date_val" />
-          <div class="calender"></div>
-        </div>
-        <div class="input_contents">
-          <ul class="select_button">
-            <li id="giraff">Giraff</li>
-            <li id="lion">Lion</li>
-            <li id="monkey">Monkey</li>
-          </ul>
-          <div class="textarea-wrapper">
-            <textarea
-              name=""
-              id="text_area"
-              cols="30"
-              rows="10"
-              placeholder="Todoを記入して下さい"
-            ></textarea>
+      <div class="area-wrapper">
+        <div class="input-wrapper">
+          <!-- カレンダー -->
+          <div class="calender-wrapper">
+            <input
+              type="text"
+              id="date_val"
+              class="calender"
+              placeholder="日付を選んでください"
+            />
+            <!-- <div class="calender"></div> -->
           </div>
+          <div class="input_contents">
+            <ul class="select_button">
+              <li id="giraff">Giraff</li>
+              <li id="lion">Lion</li>
+              <li id="monkey">Monkey</li>
+            </ul>
+            <div class="textarea-wrapper">
+              <textarea
+                name=""
+                id="text_area"
+                cols="30"
+                rows="10"
+                placeholder="Todoを記入して下さい"
+              ></textarea>
+            </div>
+          </div>
+          <ul class="button">
+            <li id="save">Save</li>
+            <li id="clear">Clear</li>
+          </ul>
+        </div>
+
+        <div class="list-wrapper">
+          <p class="list-title">Todo will be added below...</p>
+          <ul class="list">
+            <!-- 記入したTodoをここに記載 -->
+          </ul>
         </div>
       </div>
-      <ul class="button">
-        <li id="save">Save</li>
-        <li id="clear">Clear</li>
-      </ul>
-
-      <ul class="list">
-        <!-- 記入したTodoをここに記載 -->
-      </ul>
     </main>
 
     <footer>@copyrights</footer>

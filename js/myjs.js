@@ -11,9 +11,7 @@ $("#save").on("click", function () {
   let key = $("#date_val").val();
   let value = $("#text_area").val();
 
-  //   console.log("key: " + key + " value: " + value);
-
-  if (value == "") {
+  if (key == "" || value == "") {
     alert("Empty");
   } else {
     localStorage.setItem(key, value); //ローカルストレージに保存
