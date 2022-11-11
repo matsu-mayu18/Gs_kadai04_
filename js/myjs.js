@@ -14,44 +14,92 @@ $("#save").on("click", function () {
   if (key == "" || value == "") {
     alert("Empty");
   } else {
-    localStorage.setItem(key, value); //ローカルストレージに保存
-    key_num++; //key_numを一つ進める
+    //ローカルストレージに保存
+    localStorage.setItem(key, value);
 
-    bg_class = "randombg" + key_num;
-
-    //listにp要素を追加
-    $(".list")
-      .append('<p class="' + bg_class + '">' + value + "</p>")
-      .fadeIn(3000);
-
-    //ランダム背景を設定
+    //背景画像をランダムで表示する
+    //bg_classの値を randombg + ランダム数値に設定
     let bg_num = Math.floor(Math.random() * imgfile.length);
+    let bg_class = "randombg" + bg_num;
+    // console.log(bg_class);
 
-    $("." + bg_class).css(
-      "background-image",
-      "url(" + imgpass + imgfile[bg_num] + ")"
-    );
+    console.log(imgpass, imgfile[bg_num]);
+
+    //listにp要素を追加。class="randombg1"など。
+    const html_list = `
+      <div class="Todo_contents">
+        <img src="${imgpass}${imgfile[bg_num]}" class="bg">
+        <p class="${bg_class}">${key}<br/>${value}</p>
+        <span class="delete">x</span>
+        <span class="done">done</span>
+      </div>
+    `;
+
+    console.log(html_list);
+    $(".list").append(html_list);
 
     // console.log("url(" + imgpass + imgfile[bg_num] + ")");
   }
 });
 
-//ページ読み込みのとき：保存データ取得表示
+//clearのクリックイベント
+//カレンダーの値を消すのはまだできてない。
+$("#clear").on("click", function () {
+  $("#text_area").val("");
+  // $("#calender").val("");
+});
+
+//ページリロードのとき：保存データ取得表示
 //ローカルストレージからデータを取得
 //文字の表示と背景画像の表示(データとして持っているのは日付とTodoだけ→画像の番号も持つ必要がある)
 for (let i = 0; i < localStorage.length; i++) {
-  const key_num = localStorage.key(i);
-  const value = localStorage.getItem(key_num);
+  const key = localStorage.key(i);
+  const value = localStorage.getItem(key);
 
-  const html = `
-    <p class=" + ${bg_class} + "> + ${value} + </p>
+  const html_reload = `
+  <div class="Todo_contents">
+    <img src="${imgpass}${imgfile[1]}" class="bg">
+    <p class="${bg_class}">${key}<br/>${value}</p>
+    <span class="delete">x</span>
+    <span class="done">done</span>
+  </div>
     `;
 
   //  <p class="randombg"> ${value} </p>
-
-  $(".list").append(html);
+  $(".list").append(html_reload);
 }
 
+//animalのクリックイベント
+//画像だけ透過度Opacity設定しようとしたが、テキストも透過されてしまった。
+//今回はあらかじめ透過した画像を設定。
+//CANVASとか使ったら何かできるようになるだろうか…。
+$("#giraff").on("click", function () {
+  //   alert("giraff");
+  $("#text_area")
+    .css("background-image", "url(./img/01_opacity.png)")
+    .css("background-size", "contain")
+    .css("background-repeat", "no-repeat");
+  // .css("filter", "brightness(10%)")
+  // .css("filter", "grayscale(20%)")
+  // .css("filter", "opacity(30%)");
+});
+//animalのクリックイベント
+$("#lion").on("click", function () {
+  $("#text_area")
+    .css("background-image", "url(./img/02_opacity.png)")
+    .css("background-size", "contain")
+    .css("background-repeat", "no-repeat");
+});
+
+//animalのクリックイベント
+$("#monkey").on("click", function () {
+  $("#text_area")
+    .css("background-image", "url(./img/03_opacity.png)")
+    .css("background-size", "contain")
+    .css("background-repeat", "no-repeat");
+});
+
+//カレンダーを表示
 $(function () {
   $(".calender").datepicker({
     showOtherMonths: true, //他の月を表示
@@ -69,37 +117,17 @@ $(function () {
   });
 });
 
-//animalのクリックイベント
-$("#giraff").on("click", function () {
-  //   alert("giraff");
+//deleteボタンが押されたら
+//親要素だけ消す
+$(".delete").on("click", function () {
+  // alert("delete");
 
-  $("#text_area")
-    .css("background-image", "url(./img/01_opacity.png)")
-    .css("background-size", "contain")
-    .css("background-repeat", "no-repeat");
-  // .css("filter", "brightness(10%)")
-  // .css("filter", "grayscale(20%)")
-  // .css("filter", "opacity(30%)")
-  // .css("filter", "alpha(opacity=30)");
-});
-//animalのクリックイベント
-$("#lion").on("click", function () {
-  $("#text_area")
-    .css("background-image", "url(./img/02_opacity.png)")
-    .css("background-size", "contain")
-    .css("background-repeat", "no-repeat");
-  //     .css("filter", "brightness(10%)")
-  //     .css("filter", "grayscale(20%)")
-  //     .css("filter", "opacity(30%)");
+  $(this).parent().remove();
 });
 
-//animalのクリックイベント
-$("#monkey").on("click", function () {
-  $("#text_area")
-    .css("background-image", "url(./img/03_opacity.png)")
-    .css("background-size", "contain")
-    .css("background-repeat", "no-repeat");
-  // .css("filter", "brightness(10%)")
-  // .css("filter", "grayscale(20%)")
-  // .css("filter", "opacity(30%)");
+//doneボタンが押されたら
+$(".done").on("click", function () {
+  // alert("delete");
+
+  $("#play-button").get(0).play();
 });
